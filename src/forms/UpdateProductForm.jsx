@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Grid, Row, Col} from "react-flexbox-grid";
+import {Row, Col} from "react-flexbox-grid";
 import {useDispatch} from "react-redux";
 import {updateProduct} from "../redux/actions/products";
 import {numberValidation} from "../constants";
@@ -90,9 +90,8 @@ export default function UpdateProductForm(props) {
     }, [submit])
 
     return (
-        <Grid>
             <Row>
-                <Col sm={6} className="form-group">
+                <Col lg={5} md={12} sm={12} xs={12} className="form-group">
                     <label>Total devices</label>
                     <input
                         type="number"
@@ -103,7 +102,7 @@ export default function UpdateProductForm(props) {
                     {touchedFields?.includes("quantity") && numberValidation(formValues?.quantity) &&
                     <span className="form-error">Must be greater than 0</span>}
                 </Col>
-                <Col sm={6} className="form-group">
+                <Col lg={5} md={12} sm={12} xs={12} className="form-group">
                     <label>Valid until</label>
                     <input
                         type="number"
@@ -117,6 +116,5 @@ export default function UpdateProductForm(props) {
                     <span className="form-error">Must be greater than 0</span>}
                 </Col>
             </Row>
-        </Grid>
     )
 }

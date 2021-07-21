@@ -76,6 +76,12 @@
           }
         }
 
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+
         .product-price {
           display: flex;
           justify-content: flex-end;
@@ -132,7 +138,6 @@
   }
 
   input {
-    width: 100px;
     height: 25px;
     border: 1px solid var(--light-gray);
     border-radius: 0;
@@ -145,6 +150,27 @@
     .app-content {
       .product-card {
         height: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .app-layout {
+    input {
+      max-width: 50%;
+    }
+    .app-content {
+      .product-card {
+        .product-info {
+          .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .5rem;
+          }
+        }
       }
     }
   }
