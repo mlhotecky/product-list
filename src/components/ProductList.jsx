@@ -18,8 +18,6 @@ export default function ProductList() {
 
     useEffect(() => {
         fetchData();
-        // if i want call this action once like componentDidMount its without deps
-        // but there is not default empty deps without warning
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

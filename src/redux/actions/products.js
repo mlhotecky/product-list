@@ -10,8 +10,6 @@ import {
     GET_PRODUCT_STATUS
 } from "../../constants";
 
-// PRODUCT ACTIONS
-
 const getProductStatus = (type, status, message) => ({
     type: GET_PRODUCT_STATUS,
     payload: {
