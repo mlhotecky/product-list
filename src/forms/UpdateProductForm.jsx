@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Grid, Row, Col} from "react-flexbox-grid";
 import {useDispatch} from "react-redux";
 import {updateProduct} from "../redux/actions/products";
+import {numberValidation} from "../constants";
 
 export default function UpdateProductForm(props) {
 
@@ -17,8 +18,16 @@ export default function UpdateProductForm(props) {
         period: 0
     }
 
+    const actualYear = new Date().getFullYear();
+    const selectedYear = actualYear + item?.period;
+
+    const initItem = {
+        ...item,
+        period: selectedYear
+    }
+
     // definition of form object - initial when update || initialFields when create new one
-    const [formValues, setFormValues] = useState(item || initialFields);
+    const [formValues, setFormValues] = useState(initItem || initialFields);
 
     // array of touched fields for showing validation messages
     const [touchedFields, setTouchedFields] = useState([]);
@@ -63,9 +72,14 @@ export default function UpdateProductForm(props) {
     // submit form - if validation is ok, do callback by modal prop
     // or touch all fields for displaying error messages
     useEffect(() => {
-        if (JSON.stringify(item) !== JSON.stringify(formValues)) {
+        const exactValues = {
+            ...formValues,
+            period: formValues?.period - actualYear
+        }
+
+        if (JSON.stringify(item) !== JSON.stringify(exactValues)) {
             if (validForm) {
-                dispatch(updateProduct(id, formValues));
+                dispatch(updateProduct(id, exactValues));
             } else {
                 touchAll();
             }
@@ -86,7 +100,7 @@ export default function UpdateProductForm(props) {
                         value={val("quantity")}
                         onChange={handleChange}
                         onBlur={touchField} />
-                    {touchedFields?.includes("quantity") && formValues?.quantity <= 0 &&
+                    {touchedFields?.includes("quantity") && numberValidation(formValues?.quantity) &&
                     <span className="form-error">Must be greater than 0</span>}
                 </Col>
                 <Col sm={6} className="form-group">
@@ -97,8 +111,9 @@ export default function UpdateProductForm(props) {
                         value={val("period")}
                         onChange={handleChange}
                         onBlur={touchField}
+                        min={actualYear + 1}
                     />
-                    {touchedFields?.includes("period") && formValues?.period <= 0 &&
+                    {touchedFields?.includes("period") && numberValidation(formValues?.period) &&
                     <span className="form-error">Must be greater than 0</span>}
                 </Col>
             </Row>
