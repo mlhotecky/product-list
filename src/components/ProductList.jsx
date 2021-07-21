@@ -31,7 +31,7 @@ export default function ProductList() {
                     <Row>
                         {
                             productList?.length > 0 ?
-                                productList.map(item => <ProductItem key={item.id} item={item}/>)
+                                productList.sort(function(a, b) {return a.id - b.id}).map(item => <ProductItem key={item.id} item={item}/>)
                                 : <p>{NO_DATA}</p>
                         }
                     </Row>
