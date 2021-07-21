@@ -3,7 +3,7 @@ import {Col, Row} from "react-flexbox-grid";
 import FeatureItem from "./FeatureItem";
 import UpdateProductForm from "../forms/UpdateProductForm";
 import {useSelector} from "react-redux";
-import {PENDING, UPDATE_PRODUCT} from "../constants";
+import {localeCurrency, PENDING, UPDATE_PRODUCT} from "../constants";
 
 export default function ProductItem(props) {
 
@@ -44,7 +44,7 @@ export default function ProductItem(props) {
                     </Row>
                     <Row>
                         <Col className="product-price" md={12}>
-                            <div>{price}</div>
+                            <div>{localeCurrency(price)}</div>
                         </Col>
                     </Row>
                 </Col>
