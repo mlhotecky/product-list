@@ -37,13 +37,13 @@ export default function ProductItem(props) {
                         }
                     </Row>
                     <Row>
-                        <UpdateProductForm
-                            submit={submit}
-                            item={item}
-                        />
-                    </Row>
-                    <Row>
-                        <Col className="product-price" md={12}>
+                        <Col md={12}>
+                            <UpdateProductForm
+                                submit={submit}
+                                item={item}
+                            />
+                        </Col>
+                        <Col md={12} className="product-price">
                             <div>{localeCurrency(price)}</div>
                         </Col>
                     </Row>

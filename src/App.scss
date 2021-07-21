@@ -51,10 +51,9 @@
     .product-card {
       border: 1px solid var(--light-gray);
       margin: 0;
-      padding: .5rem;
       height: 100%;
       .product-image {
-        padding: .5rem;
+        padding: 1rem;
         img {
           width: 100%;
           height: auto;
@@ -129,12 +128,6 @@
   .form-error {
     color: var(--red);
     font-size: .8rem;
-  }
-
-  input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
   }
 
   input {
