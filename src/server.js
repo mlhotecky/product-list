@@ -17,7 +17,7 @@ export function makeServer() {
                 ],
                 quantity: 3,
                 period: 3,
-                price: 250
+                price: 2500
             });
 
             server.create("product", {
@@ -31,7 +31,7 @@ export function makeServer() {
                 ],
                 quantity: 7,
                 period: 6,
-                price: 333,
+                price: 3330,
             });
         },
 
