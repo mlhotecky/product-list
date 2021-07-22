@@ -17,10 +17,12 @@ export const REJECTED = "REJECTED";
 export const NO_DATA = "No data.";
 export const ERROR = "Error occurred:";
 export const ERROR_FETCHING = "Error occurred while fetching data.";
-export const PRODUCT_UPDATED = "Product has been updated!"
+export const PRODUCT_UPDATED = "Product has been updated!";
 
 // validation of invalid values
 
 export const invalidValues = [undefined, null, "", NaN];
-export const numberValidation = (val) => !invalidValues.includes(val) && val <= 0;
-export const localeCurrency = (val) => lang === "cs" ? `${val?.toLocaleString()},-` : `${val?.toLocaleString()} CZK`
+export const numberValidation = (val) =>
+  !invalidValues.includes(val) && val <= 0;
+export const localeCurrency = (val) =>
+  lang === "cs" ? `${val?.toLocaleString()},-` : `${val?.toLocaleString()} CZK`;
