@@ -20,8 +20,6 @@ export default function ProductList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(productList);
-
   return (
     <ContentWrapper statusObject={productStatus} forType={GET_PRODUCTS}>
       <Grid>
